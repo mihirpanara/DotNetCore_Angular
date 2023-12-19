@@ -1,1 +1,59 @@
-<p>member-detail works!</p>
+<div class="row">
+    <div class="col-4">
+        <div class="card">
+            <img src="{{member?.photoUrl || './assets/user.png'}}" class="card-img-top img-thumbnail" alt="{{member?.knownAs}}">
+            <div class="card-body">
+                <div class="">
+                    <strong>Location:</strong>
+                    <p> {{member?.city}}, {{member?.country}}</p>
+                </div>
+                <div class="">
+                    <strong>Age:</strong>
+                    <p> {{member?.age}}</p>
+                </div>
+                <div class="">
+                    <strong>Last Active:</strong>
+                    <p> {{member?.lastActive}}</p>
+                </div>
+                <div class="">
+                    <strong>Member since:</strong>
+                    <p> {{member?.created}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group d-flex">
+                    <button class="btn btn-primary">Like</button>
+                    <button class="btn btn-success">Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-8">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <button class="nav-link active" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description" type="button" role="tab" aria-controls="nav-description" aria-selected="true">Description</button>
+              <button class="nav-link" id="nav-Interests-tab" data-bs-toggle="tab" data-bs-target="#nav-Interests" type="button" role="tab" aria-controls="nav-Interests" aria-selected="false">Interests</button>
+              <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab" data-bs-target="#nav-photos" type="button" role="tab" aria-controls="nav-photos" aria-selected="false">Photos</button>
+              <button class="nav-link" id="nav-messages-tab" data-bs-toggle="tab" data-bs-target="#nav-messages" type="button" role="tab" aria-controls="nav-messages" aria-selected="false">Messages</button>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
+                <h4>Description</h4>
+                <p>{{member?.introduction}}</p>
+                <h4>Looking For</h4>
+                <p>{{member?.lookingFor}}</p>
+            </div>
+            <div class="tab-pane fade" id="nav-Interests" role="tabpanel" aria-labelledby="nav-Interests-tab">
+                <h4>Interests</h4>
+                <p>{{member?.intersts}}</p>
+            </div>
+            <div class="tab-pane fade" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">
+                <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+            </div>
+            <div class="tab-pane fade show " id="nav-messages" role="tabpanel" aria-labelledby="nav-messages-tab">
+                <h4>Messages</h4>
+            </div>
+          </div>
+    </div>
+</div>

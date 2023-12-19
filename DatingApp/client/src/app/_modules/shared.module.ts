@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 
 
@@ -12,11 +13,13 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
-    })
+    }),
+    NgxGalleryModule
   ],
   exports:[
     BrowserAnimationsModule,
-    ToastrModule
+    ToastrModule,
+    NgxGalleryModule
   ]
 })
 export class SharedModule { }
