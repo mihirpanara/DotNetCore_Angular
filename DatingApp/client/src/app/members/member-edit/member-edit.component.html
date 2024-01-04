@@ -1,0 +1,69 @@
+<div class="row" *ngIf="member">
+    <div class="col-4">
+        <h2>Your Profile</h2>
+    </div>
+    <div class="col-8">
+        <div class="alert alert-info" *ngIf="editForm.dirty">
+            <strong>Information:</strong> You have made changes, Any unsaved changes will be lost
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <img src="{{member?.photoUrl || './assets/user.png'}}" class="card-img-top img-thumbnail" alt="{{member?.knownAs}}">
+            <div class="card-body">
+                <div class="">
+                    <strong>Location:</strong>
+                    <p> {{member?.city}}, {{member?.country}}</p>
+                </div>
+                <div class="">
+                    <strong>Age:</strong>
+                    <p> {{member?.age}}</p>
+                </div>
+                <div class="">
+                    <strong>Last Active:</strong>
+                    <p> {{member?.lastActive}}</p>
+                </div>
+                <div class="">
+                    <strong>Member since:</strong>
+                    <p> {{member?.created}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" [disabled]="!editForm.dirty" form="editForm" class="btn btn-success w-100">save changes</button>
+                
+            </div>
+        </div>
+    </div>
+    <div class="col-8">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <button class="nav-link active" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-About" type="button" role="tab" aria-controls="nav-About" aria-selected="true">About {{member.username}}</button>
+              <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab" data-bs-target="#nav-Edit-Photos" type="button" role="tab" aria-controls="nav-Interests" aria-selected="false">Edit Photos</button>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-About" role="tabpanel" aria-labelledby="nav-description-tab">
+                <form #editForm="ngForm" id="editForm" (ngSubmit)="updateMember()">
+                    <h5 class="mt-3">Description</h5>
+                    <textarea class="form-control" [(ngModel)]="member.introduction" name="introduction" rows="6"></textarea>
+                    <h5 class="mt-3" class="mt-2">Looking For</h5>
+                    <textarea class="form-control" [(ngModel)]="member.lookingFor" name="lookingFor" rows="6"></textarea>
+                    <h5 class="mt-3" class="mt-2">Intersts</h5>
+                    <textarea class="form-control" [(ngModel)]="member.intersts" name="intersts" rows="6"></textarea>
+                    <h5 class="mt-3">Location Details</h5>
+                    <div class="form-inline">
+                        <label for="city">City:</label>
+                        <input class="form-control" [(ngModel)]="member.city" type="text" name="city" class="form-control mx-2">
+                        <label for="country">Country:</label>
+                        <input class="form-control" [(ngModel)]="member.country" type="text" name="country" class="form-control mx-2">
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="nav-Edit-Photos" role="tabpanel" aria-labelledby="nav-Interests-tab">
+                <h5 class="mt-3">Edit Photos</h5>
+                <!-- <p>{{member.intersts}}</p> -->
+            </div>
+            
+          </div>
+    </div>
+</div>
