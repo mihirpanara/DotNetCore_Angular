@@ -1,10 +1,13 @@
 {
-  "projects": {
-    "client": {
-      "rootDirectory": "DatingApp/client",
-      "framework": "angular",
-      "buildCommand": "ng build --configuration=production",
-      "outputDirectory": "dist"
+  "version": 2,
+  "builds": [
+    {
+      "src": "DatingApp/client/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
     }
-  }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
