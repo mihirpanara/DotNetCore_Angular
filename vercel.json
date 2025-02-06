@@ -1,0 +1,10 @@
+{
+  "projects": {
+    "client": {
+      "rootDirectory": "DatingApp/client",
+      "framework": "angular",
+      "buildCommand": "ng build --configuration=production",
+      "outputDirectory": "dist"
+    }
+  }
+}
