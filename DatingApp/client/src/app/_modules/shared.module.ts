@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
-import { FileUploadModule } from 'ng2-file-upload';
+import { NgxFileDropModule } from 'ngx-file-drop';
 
 
 
@@ -16,13 +16,13 @@ import { FileUploadModule } from 'ng2-file-upload';
       positionClass: 'toast-bottom-right'
     }),
     NgxGalleryModule,
-    FileUploadModule
+    NgxFileDropModule
   ],
   exports:[
     BrowserAnimationsModule,
     ToastrModule,
     NgxGalleryModule,
-    FileUploadModule
+    NgxFileDropModule
   ]
 })
 export class SharedModule { }

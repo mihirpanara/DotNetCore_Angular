@@ -23,7 +23,8 @@
 
         
         <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user">
-          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          <img src="{{user.photoUrl}}" alt="{{user.username}}" class="img" srcset="">
+          <button class="btn btn-secondary dropdown-toggle ms-2" type="button" data-bs-toggle="dropdown">
             Welcome {{user.username | titlecase}}
           </button>
           <ul class="dropdown-menu">
