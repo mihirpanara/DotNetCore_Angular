@@ -1,0 +1,9 @@
+<div class="form-group mt-2">
+    <div>
+        <input ngbDatepicker [class.is-invalid]="control.invalid && control.touched" class="form-control"
+            [formControl]="control" #d="ngbDatepicker" (click)="d.toggle()" placeholder="{{label}}" />
+        <div *ngIf="control.errors?.['required']" class="invalid-feedback">
+            Please enter a {{ label }}
+        </div>
+    </div>
+</div>

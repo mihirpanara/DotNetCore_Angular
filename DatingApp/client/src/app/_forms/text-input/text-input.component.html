@@ -1,0 +1,47 @@
+<div class="form-group mt-2">
+  <!-- <input 
+    [type]="type"
+    class="form-control"
+    [class.is-invalid]="ngControl?.invalid && ngControl?.touched"
+    [formControl]="ngControl?.control as FormControl"
+    [placeholder]="label" />
+
+  <div *ngIf="ngControl.control?.errors?.['required']" class="invalid-feedback">
+    Please enter a {{label}} 
+  </div>
+
+  <div *ngIf="ngControl.control?.errors?.['minlength']" class="invalid-feedback">
+    {{label}} must be at least {{ngControl.control.errors?.['minlength'].requiredLength}} characters
+  </div>
+
+  <div *ngIf="ngControl.control?.errors?.['maxlength']" class="invalid-feedback">
+    {{label}} must be at most {{ngControl.control.errors?.['maxlength'].requiredLength}} characters
+  </div>
+
+  <div *ngIf="ngControl.control?.errors?.['isMatching']" class="invalid-feedback">
+    Passwords do not match
+  </div> -->
+  <input 
+  [type]="type"
+  class="form-control"
+  [class.is-invalid]="control.invalid && control.touched"
+  [formControl]="control"
+  [placeholder]="label" />
+
+<div *ngIf="control.errors?.['required']" class="invalid-feedback">
+  Please enter a {{ label }}
+</div>
+
+<div *ngIf="control.errors?.['minlength']" class="invalid-feedback">
+  {{ label }} must be at least {{ control.errors?.['minlength']?.requiredLength }} characters
+</div>
+
+<div *ngIf="control.errors?.['maxlength']" class="invalid-feedback">
+  {{ label }} must be at most {{ control.errors?.['maxlength']?.requiredLength }} characters
+</div>
+
+<div *ngIf="control.errors?.['isMatching']" class="invalid-feedback">
+  Passwords do not match
+</div>
+
+</div>

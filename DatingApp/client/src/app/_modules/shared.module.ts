@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { NgxFileDropModule } from 'ngx-file-drop';
+import { NgbDatepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -16,13 +17,17 @@ import { NgxFileDropModule } from 'ngx-file-drop';
       positionClass: 'toast-bottom-right'
     }),
     NgxGalleryModule,
-    NgxFileDropModule
+    NgxFileDropModule,
+    NgbDatepickerModule,
+    NgbModule
   ],
   exports:[
     BrowserAnimationsModule,
     ToastrModule,
     NgxGalleryModule,
-    NgxFileDropModule
+    NgxFileDropModule,
+    NgbDatepickerModule,
+    NgbModule
   ]
 })
 export class SharedModule { }

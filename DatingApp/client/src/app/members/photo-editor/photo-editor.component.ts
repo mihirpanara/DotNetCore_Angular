@@ -102,6 +102,12 @@ export class PhotoEditorComponent implements OnInit {
         this.memberService.uploadFile(formData)
           .subscribe(response => {
             console.log('Upload success:', response);
+            const photo = JSON.parse(response as string);
+            if(this.user && this.member && photo.isMain){
+              this.user.photoUrl = photo.url;
+              this.member.photoUrl = photo.url;
+              this.accountService.setCurrentUser(this.user)
+            }
           });
       });
     }
