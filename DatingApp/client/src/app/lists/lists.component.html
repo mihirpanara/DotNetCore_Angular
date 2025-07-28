@@ -1,1 +1,39 @@
-<p>lists works!</p>
+<div class="text-center mt-3">
+    <h2>{{ predicate === 'liked' ? 'Member I like' : 'Member who like me'}}</h2>
+</div>
+<div class="container mt-3">
+    <!-- <div class="row">
+        <div class="btn-group" name="predicate">
+            <button class="btn btn-primary" btnRadio="liked" 
+                (click)="loadLikes()"
+                [(ngModel)]="predicate"></button>
+        </div>
+    </div> -->
+    <!-- [(ngModel)]="predicate" -->
+    <div class="btn-group" ngbRadioGroup  name="predicate" [(ngModel)]="predicate">
+        <button class="btn btn-outline-primary" btnRadio="liked" value="liked" (click)="loadLikes()">
+            Members I Liked
+        </button>
+
+        <button class="btn btn-outline-primary" btnRadio="likedBy" value="likedBy" (click)="loadLikes()">
+            Memberes who liked me 
+        </button>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-2" *ngFor="let member of members">
+            <app-member-card [member]="member"></app-member-card>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center" *ngIf="pagination">
+  <!-- <ngb-pagination [collectionSize]="70" [(page)]="2" [boundaryLinks]="true"></ngb-pagination> -->
+  <nav aria-label="Page navigation">
+    <ngb-pagination [collectionSize]="pagination.totalItems" [(page)]="pagination.currentPage"
+      (pageChange)="pageChanged($event)" [pageSize]="pageSize" [maxSize]="pagination.itemsPerPage"
+      [boundaryLinks]="true" [rotate]="true">
+    </ngb-pagination>
+  </nav>
+
+</div>

@@ -6,6 +6,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { NgbButtonsModule, NgbDatepickerModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { TimeagoCustomFormatter, TimeagoFormatter, TimeagoModule } from 'ngx-timeago';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -22,6 +23,7 @@ import { TimeagoCustomFormatter, TimeagoFormatter, TimeagoModule } from 'ngx-tim
     NgbDatepickerModule,
     NgbModule,
     NgbPaginationModule,
+    FormsModule,
     NgbButtonsModule,
     TimeagoModule.forRoot()
   ],
