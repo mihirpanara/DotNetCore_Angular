@@ -23,6 +23,8 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { DateInputComponent } from './_forms/date-input/date-input.component';
 import { ListsComponent } from './lists/lists.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { ListsComponent } from './lists/lists.component';
     PhotoEditorComponent,
     TextInputComponent,
     DateInputComponent,
-    ListsComponent
+    ListsComponent,
+    MessagesComponent,
+    MemberMessagesComponent
   ],
   imports: [
     BrowserModule,

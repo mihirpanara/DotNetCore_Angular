@@ -1,0 +1,25 @@
+.btn-check {
+    display: none;
+}
+
+.btn-check:checked + .btn {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: white;
+}
+
+.btn-check:not(:checked) + .btn {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #6c757d;
+}
+
+.btn-check:not(:checked) + .btn:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+    color: #495057;
+}
+
+.img-circle{
+    max-height: 50px;
+}

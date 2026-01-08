@@ -24,36 +24,36 @@
             <div class="card-footer">
                 <div class="btn-group d-flex">
                     <button class="btn btn-primary">Like</button>
-                    <button class="btn btn-success">Message</button>
+                    <button (click)="selectTab(3)" class="btn btn-success">Message</button>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-8">
-        <nav>
+        <nav #memberTabs>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <button class="nav-link active" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description" type="button" role="tab" aria-controls="nav-description" aria-selected="true">Description</button>
-              <button class="nav-link" id="nav-Interests-tab" data-bs-toggle="tab" data-bs-target="#nav-Interests" type="button" role="tab" aria-controls="nav-Interests" aria-selected="false">Interests</button>
-              <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab" data-bs-target="#nav-photos" type="button" role="tab" aria-controls="nav-photos" aria-selected="false">Photos</button>
-              <button class="nav-link" id="nav-messages-tab" data-bs-toggle="tab" data-bs-target="#nav-messages" type="button" role="tab" aria-controls="nav-messages" aria-selected="false">Messages</button>
+              <button class="nav-link" [class.active]="activeTab === 0"  (click)="onTabActivated(0)" id="nav-description-tab" data-bs-toggle="tab" data-bs-target="#nav-description" type="button" role="tab" aria-controls="nav-description" aria-selected="true">Description</button>
+              <button class="nav-link" [class.active]="activeTab === 1"  (click)="onTabActivated(1)" id="nav-Interests-tab" data-bs-toggle="tab" data-bs-target="#nav-Interests" type="button" role="tab" aria-controls="nav-Interests" aria-selected="false">Interests</button>
+              <button class="nav-link" [class.active]="activeTab === 2"  (click)="onTabActivated(2)" id="nav-photos-tab" data-bs-toggle="tab" data-bs-target="#nav-photos" type="button" role="tab" aria-controls="nav-photos" aria-selected="false">Photos</button>
+              <button class="nav-link" [class.active]="activeTab === 3"  (click)="onTabActivated(3)" id="nav-messages-tab" data-bs-toggle="tab" data-bs-target="#nav-messages" type="button" role="tab" aria-controls="nav-messages" aria-selected="false">Messages</button>
             </div>
-          </nav>
+        </nav>
           <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
+            <div class="tab-pane fade show active" [class.active]="activeTab === 0" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab" >
                 <h4>Description</h4>
                 <p>{{member?.introduction}}</p>
                 <h4>Looking For</h4>
                 <p>{{member?.lookingFor}}</p>
             </div>
-            <div class="tab-pane fade" id="nav-Interests" role="tabpanel" aria-labelledby="nav-Interests-tab">
+            <div class="tab-pane fade border border-2 border-primary" [class.active]="activeTab === 1" id="nav-Interests" role="tabpanel" aria-labelledby="nav-Interests-tab" >
                 <h4>Interests</h4>
                 <p>{{member?.intersts}}</p>
             </div>
-            <div class="tab-pane fade" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab">
+            <div class="tab-pane fade" [class.active]="activeTab === 2" id="nav-photos" role="tabpanel" aria-labelledby="nav-photos-tab" >
                 <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
             </div>
-            <div class="tab-pane fade show " id="nav-messages" role="tabpanel" aria-labelledby="nav-messages-tab">
-                <h4>Messages</h4>
+            <div class="tab-pane fade show " [class.active]="activeTab === 3" *ngIf="true" id="nav-messages" role="tabpanel"  aria-labelledby="nav-messages-tab">
+                <app-member-messages [messages]="messages" [username]="member?.username"></app-member-messages>
             </div>
           </div>
     </div>
