@@ -1,0 +1,35 @@
+<h2 class="admin-title">Admin Panel</h2>
+
+<div class="admin-card">
+  <!-- Tabs -->
+  <ul class="admin-tabs">
+    <li
+      class="tab-item"
+      [class.active]="activeTab === 'user'"
+      (click)="activeTab = 'user'"
+      *appHasRole="['Admin']"
+    >
+      User management
+    </li>
+
+    <li
+      class="tab-item"
+      [class.active]="activeTab === 'photo'"
+      (click)="activeTab = 'photo'"
+      *appHasRole="['Admin', 'Moderator']"
+    >
+      Photo management
+    </li>
+  </ul>
+
+  <!-- Tab Content -->
+  <div class="tab-content">
+    <div *ngIf="activeTab === 'user'">
+      <app-user-management></app-user-management>
+    </div>
+
+    <div *ngIf="activeTab === 'photo'">
+      <app-photo-management></app-photo-management>
+    </div>
+  </div>
+</div>
